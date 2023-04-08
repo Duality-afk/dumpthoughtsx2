@@ -1,0 +1,73 @@
+
+.profile-heading{
+    color: black;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+.profile-stats{
+    color: black;
+    width: 20rem;
+    margin-left: 2rem;
+    margin-top: -2.5rem;
+    
+}
+.statistics .box i {
+    color: black;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+    
+}
+
+.profile-header-image{
+    width: 80%;
+    margin-top: -5rem;
+}
+
+
+  .btn{
+    margin-left: 1rem;
+    width: 10%;
+    font-size: 0.7rem;
+    margin-top: -0.2rem;
+   
+    
+  }
+
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    
+.profile-heading{
+    color: black;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+.profile-stats{
+    color: black;
+    width: 150rem;
+    
+    margin-left: 25rem;
+    margin-top: -2.5rem;
+    
+}
+.statistics .box i {
+    color: black;
+	width: 160px;
+	height: 160px;
+	line-height: 60px;
+    
+}
+
+.profile-header-image{
+    width: 25%;
+    margin-top: -5rem;
+}
+
+.btn{
+    width: 1.5%;
+}
+
+  }

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel ="stylesheet" href="{% static 'css/login.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<br><br><br>
+
+<div class="login">
+<br><br><br>
+<center>
+    <img src="\static\img\signupheaderimage.png" class="signup-header-image">
+    </center>
+<div class="signup-heading">
+    Sign Up! And start sharing
+</div>
+<div class="well login-box center-block">
+    <form method="POST" name="login">
+        {% csrf_token %}
+      <input type="text" class="form-control" placeholder="Username" name="username" />
+      {% if flag == True %}
+      <p class="username-message">Username already taken</p>
+      {% endif %}
+      <input type="text" class="form-control" placeholder="Email address" name="email" />
+     
+      <input type="password" class="form-control" id="pass" placeholder="Password" name="password" />
+      
+      <button class="btn btn-primary" type="submit">Sign Up</button>
+      <br>
+      <a href="/login" class="forgot-password">Already have an account?</a>
+  </div>
+  </form>
+  </div>
+
+{% endblock content %}

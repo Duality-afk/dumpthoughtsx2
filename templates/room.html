@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel ="stylesheet" href="{% static 'css/room.css' %}">
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<br><br><br>
+
+
+
+
+
+
+<div id="display">
+      
+</div>
+
+<script>
+$(document).ready(function(){
+
+setInterval(function(){
+    $.ajax({
+        type: 'GET',
+        url : "/getMessages/{{roomkey}}",
+        success: function(response){
+            console.log(response);
+            $("#display").empty();
+            for (var key in response.messages)
+            {
+              
+                var temp="<div class='container darker'> <span class='username'>Anonymous</span> <span class='userid'>#"+response.messages[key].userkey+"</span><p>"+response.messages[key].value;
+                $("#display").append(temp);
+            }
+        },
+        error: function(response){
+            //alert('An error occured')
+        }
+    });
+},1000);
+})
+</script>
+
+<div class="container">
+    
+
+    <form id="post-form">
+        {% csrf_token %}
+        <input type="hidden" name="username" id="username" value="{{username}}"/>
+        <input type="hidden" name="roomkey" id="roomkey" value="{{roomkey}}"/>
+        <input type="hidden" name="userkey" id="userkey" value="{{userkey}}"/>
+        <div class="container-text">
+        <input type="text" name="message" id="message" width="100px" placeholder="Type your message.." />
+        
+        <input type="submit" value="Send">
+      </div>
+    </form>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/sendmessage',
+      data:{
+          username:$('#username').val(),
+          roomkey:$('#roomkey').val(),
+          message:$('#message').val(),
+          userkey:$('#userkey').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function(data){
+         //alert(data)
+      }
+    });
+    document.getElementById('message').value = ''
+  });
+</script>
+{% endblock %}

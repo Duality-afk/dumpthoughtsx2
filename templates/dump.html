@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br>
+<link rel ="stylesheet" href="{% static 'css/dump.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<div class="dump">
+    <div class="header-content">
+        <center>
+            <img src="\static\img\postheaderimage.png" class="post-header-image">
+        </center>
+        <div class="heading">
+            <p>Share and flush it all!</p>
+        </div>
+        
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="dump-form">
+            <textarea name="content-area" id="" cols="30" rows="10"></textarea>
+            <button class="btn btn-primary" type="submit"> <span style="font-weight: 600 ;">DUMP IT!</span></button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock content %}

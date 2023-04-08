@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel ="stylesheet" href="{% static 'css/fav.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<br><br><br>
+<div class="fav">
+    <div class="fav-header-content">
+        <div class="heading">
+            Welcome to your Favourites!
+        </div>
+        <div class="heading-sub">
+            A place where you can relive the powerful connections you've made with others anonymously.
+        </div>
+    </div>
+
+  
+    {% for room in allrooms %}
+    {% if room.senderkey ==  userkey %}
+    {% for profile in allprofiles %}
+    {% if profile.key == room.receiverkey %}
+    <div class="fav-cards">
+        
+        <div class="fav-name">Anonymous #{{room.receiverkey}}</div>
+        {% if profile.status == "online" %}
+        <div class="fav-status-online"><i class="fa-sharp fa-solid fa fa-globe"></i> Status: Online</div>
+        {% else %}
+        <div class="fav-status-offline"><i class="fa-sharp fa-solid fa fa-globe"></i> Status: Offline</div>
+        {% endif %}
+        <div class="fav-button">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/chat/{{room.receiverkey}}'"><i class="fa-sharp fa-solid fa fa-comment"></i> Chat</button>
+        </div>
+        
+    </div>
+    <br>
+    {% endif %}
+    {% endfor %}
+  
+    {% elif room.receiverkey == userkey %}
+    {% for profile in allprofiles %}
+    {% if profile.key == room.senderkey %}
+    <div class="fav-cards">
+        
+        <div class="fav-name">Anonymous #{{room.senderkey}}</div>
+        {% if profile.status == "online" %}
+        <div class="fav-status-online"><i class="fa-sharp fa-solid fa fa-globe"></i> Status: Online</div>
+        {% else %}
+        <div class="fav-status-offline"><i class="fa-sharp fa-solid fa fa-globe"></i> Status: Offline</div>
+        {% endif %}
+        <div class="fav-button">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/chat/{{room.senderkey}}'"><i class="fa-sharp fa-solid fa fa-comment"></i> Chat</button>
+        </div>
+        
+    </div>
+    <br>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    <br><br>
+   
+</div>
+
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<link rel ="stylesheet" href="{% static 'css/home.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<div class="header">
+    <center>
+        <br>
+        <div class="header-headline">
+            <h3>Welcome to <span style="color:#567995;">DumpThoughts</span></h3>
+            {% if user.is_authenticated %}
+            <h4>{{request.user}}</h4>
+            {% endif %}
+        </div>
+        
+        <center>
+            <img src="\static\img\homeanxiety.png" class="home-header-image">
+        </center>
+        <div class="header-content">
+            <p>"Connect with like-minded individuals and share your truth anonymously on our platform."<br><span style="font-style: italic;">Join us today !</span> </p>
+        </div>
+        {% if user.is_authenticated %}
+            <button class="custom-btn btn-4" onclick="location.href='/dump'"><span>DUMP IT</span></button>
+        {% else %}
+        <button class="custom-btn btn-4""><span>DUMP IT</span></button>
+        {% endif %}
+            <br><br><br><br>
+
+       
+    </center>
+</div>
+
+<!--Posts section for Home Page-->
+<div class="posts">
+
+    <!--Thoughts Header-->
+    <div class="posts-title">
+        <h4 style="margin-left:0.5rem; color: white; text-align: center;">Thoughts</h4>
+    </div>
+    <br>
+    <!--Post container-->
+    {% for post in allPosts %}
+    
+    <div class="card-container">
+
+        <!--Card content-->
+        {% if post.author != request.user %}
+        <div class="card-header">Anonymous <span class="card-key""> #{{post.postkey}}</span></div>
+        {% else %}
+        <div class="card-header">{{post.author}}</div>
+        {% endif %}
+        <div class="card-content">
+            <p>{{post.body}}</p>
+        </div>
+        <div class="card-endtags"> <a href="/chat/{{post.postkey}}" class="connect">Connect Anonymously <i class="fa-regular fa fa-arrow-right"></i></a></div>
+    </div>
+<br>
+    {% endfor %}
+
+  
+
+
+</div>
+<br><br>
+{% endblock content %}

@@ -1,0 +1,162 @@
+.heading{
+    text-align: center;
+    font-size: 1.3rem;
+    color: black;
+}
+
+.heading-sub{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    color: black;
+}
+
+
+.fav-cards{
+    padding-top: .5rem;
+    margin: auto;
+    color: black;
+    width: 70%;
+    border-radius: 8px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.fav-name{
+    margin-left: 0.8rem;
+}
+
+.fav-status-online{
+    
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    margin-left: 0.8rem;
+    color: #00FE9C;
+}
+
+.fav-status-offline{
+    
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.8rem;
+    font-size: 0.8rem;
+    color: red;
+}
+.fav-button button{
+    margin: 0.5rem;
+    background-color:#567995;
+    border: none;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .heading{
+        text-align: center;
+        font-size: 2rem;
+        color: black;
+    }
+    
+    .heading-sub{
+        text-align: center;
+        font-size: 1.2rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 3rem;
+        color: black;
+    }
+    
+    
+    .fav-cards{
+        padding-top: .5rem;
+        margin: auto;
+        color: black;
+        width: 40%;
+        border-radius: 8px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
+    .fav-name{
+        margin-left: 0.8rem;
+        font-size: 1.1rem;
+    }
+    
+    .fav-status-online{
+        
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        margin-left: 0.8rem;
+        color: #00FE9C;
+    }
+    
+    .fav-status-offline{
+        
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        margin-left: 0.8rem;
+        font-size: 0.8rem;
+        color: red;
+    }
+    .fav-button button{
+        margin: 0.5rem;
+        background-color:#567995;
+        border: none;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .heading{
+        text-align: center;
+        font-size: 2rem;
+        color: black;
+    }
+    
+    .heading-sub{
+        text-align: center;
+        font-size: 1.2rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 3rem;
+        color: black;
+    }
+    
+    
+    .fav-cards{
+        padding-top: .5rem;
+        margin: auto;
+        color: black;
+        width: 40%;
+        border-radius: 8px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
+    .fav-name{
+        margin-left: 0.8rem;
+        font-size: 1.1rem;
+    }
+    
+    .fav-status-online{
+        
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        margin-left: 0.8rem;
+        color: #00FE9C;
+    }
+    
+    .fav-status-offline{
+        
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        margin-left: 0.8rem;
+        font-size: 0.8rem;
+        color: red;
+    }
+    .fav-button button{
+        margin: 0.5rem;
+        background-color:#567995;
+        border: none;
+    }
+  }
